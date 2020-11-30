@@ -8,7 +8,9 @@ class App extends Component{
   
   state={
     meals: [],
-    mealClicked: ""
+    mealClicked: "",
+    myMeals: [],
+    myMealCards: []
   }
 
   mealClicked = (meal) => {
@@ -18,11 +20,10 @@ class App extends Component{
     let response = await fetch("http://localhost:3000/api/v1/meals")
     let data = await response.json()
     this.setState({meals: data})
+    let mealResponse = await fetch("http://localhost:3000/api/v1/user_meals")
+    let mealData = await mealResponse.json()
+    this.setState({myMeals: mealData})
   }
-
-  // addToMyMeals=(meal)=>{
-  //   this.setState({mealAdded: meal})
-  // }
 
   persistMyMeal=(meal)=>{
     fetch("http://localhost:3000/api/v1/user_meals", {
@@ -37,8 +38,19 @@ class App extends Component{
       })
     })
     .then(resp => resp.json())
-    .then(console.log)
+    .then(data => {
+      this.setState({myMeals: [...this.state.myMeals, data]})
+      // this.setState({myMealCards: [...this.state.myMealCards, meal]})
+      // this.renderMyMeals()
+    })
   }
+
+  // renderMyMeals=()=>{
+  //   this.myMealCards.map((meal) => <MealPreview key={meal.id} meal={meal} mealClicked={this.props.mealClicked} addToMyMeals={this.props.addToMyMeals} />)
+  // }
+  
+
+
   
   render(){
     return (
