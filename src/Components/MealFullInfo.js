@@ -19,11 +19,4 @@ class MealFullInfo extends Component{
     }
 }
 
-//     t.string "youtube_link"
-//     t.text "instructions"
-//     t.datetime "created_at", precision: 6, null: false
-//     t.datetime "updated_at", precision: 6, null: false
-//     t.text "measurement", default: [], array: true
-//     t.text "ingredient", default: [], array: true
-
 export default MealFullInfo;

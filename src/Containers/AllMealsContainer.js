@@ -4,7 +4,7 @@ import MealPreview from '../Components/MealPreview'
 class AllMealsContainer extends Component{
     
     renderMealPreview=()=>{
-    return this.props.meals.map((meal) => < MealPreview key={meal.id} meal={meal} mealClicked={this.props.mealClicked}/>)
+    return this.props.meals.map((meal) => <MealPreview key={meal.id} meal={meal} mealClicked={this.props.mealClicked} addToMyMeals={this.props.addToMyMeals} />)
     }
     render(){
         return(
