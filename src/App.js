@@ -2,6 +2,7 @@ import './App.css';
 import React, {Component} from 'react'
 import MealsContainer from './Containers/MealsContainer'
 import MealFullInfo from './Components/MealFullInfo'
+import NewMeal from './Components/NewMeal'
 
 class App extends Component{
   
@@ -9,12 +10,13 @@ class App extends Component{
     meals: [],
     mealClicked: "",
     myMeals: [],
-    currentUserId: 1
+    currentUserId: 2
   }
 
   mealClicked = (meal) => {
     this.setState({ mealClicked: meal})
   }
+
   async componentDidMount(){
     let response = await fetch("http://localhost:3000/api/v1/meals")
     let data = await response.json()
@@ -46,6 +48,7 @@ class App extends Component{
   render(){
     return (
       <div >
+        <NewMeal />
         <MealsContainer meals={this.state.myMeals} mealClicked={this.mealClicked} />
         <MealsContainer meals={this.state.meals} mealClicked={this.mealClicked} addToMyMeals={this.persistMyMeal} />
         <MealFullInfo meal={this.state.mealClicked}/>
