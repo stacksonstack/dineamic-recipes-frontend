@@ -10,7 +10,7 @@ class App extends Component{
     meals: [],
     mealClicked: "",
     myMeals: [],
-    myMealCards: []
+    currentUserId: 1
   }
 
   mealClicked = (meal) => {
@@ -20,7 +20,7 @@ class App extends Component{
     let response = await fetch("http://localhost:3000/api/v1/meals")
     let data = await response.json()
     this.setState({meals: data})
-    let mealResponse = await fetch("http://localhost:3000/api/v1/user_meals")
+    let mealResponse = await fetch(`http://localhost:3000/api/v1/users/${this.state.currentUserId}/user_meals`)
     let mealData = await mealResponse.json()
     this.setState({myMeals: mealData})
   }
@@ -32,7 +32,7 @@ class App extends Component{
         'Content-Type': 'application/json',
         'Accepts': 'application/json'
       },body: JSON.stringify({
-        user_id: 1,
+        user_id: this.state.currentUserId,
         meal_id: meal.id,
         favorite: false
       })
@@ -40,23 +40,15 @@ class App extends Component{
     .then(resp => resp.json())
     .then(data => {
       this.setState({myMeals: [...this.state.myMeals, data]})
-      // this.setState({myMealCards: [...this.state.myMealCards, meal]})
-      // this.renderMyMeals()
     })
   }
-
-  // renderMyMeals=()=>{
-  //   this.myMealCards.map((meal) => <MealPreview key={meal.id} meal={meal} mealClicked={this.props.mealClicked} addToMyMeals={this.props.addToMyMeals} />)
-  // }
-  
-
 
   
   render(){
     return (
       <div >
-        <MyMealsContainer />
-        <AllMealsContainer meals={this.state.meals} mealClicked={this.mealClicked} addToMyMeals={this.persistMyMeal} />
+        <AllMealsContainer meals={this.state.myMeals} mealClicked={this.mealClicked} addToMyMeals={this.persistMyMeal} />
+        {/* <AllMealsContainer meals={this.state.meals} mealClicked={this.mealClicked} addToMyMeals={this.persistMyMeal} /> */}
         <MealFullInfo meal={this.state.mealClicked}/>
       </div>
     )
