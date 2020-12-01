@@ -5,6 +5,7 @@ import MealFullInfo from "./Components/MealFullInfo";
 import NewMeal from "./Components/NewMeal";
 import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
+import Header from "./Components/Header"
 
 class App extends Component {
   state = {
@@ -12,6 +13,7 @@ class App extends Component {
     mealClicked: "",
     myMeals: [],
     currentUserId: 5,
+    currentUserName: "Guest"
   };
 
   mealClicked = (meal) => {
@@ -57,7 +59,7 @@ class App extends Component {
         data.forEach((user) => {
           if (email === user.email) {
             this.setState({ currentUserId: user.id });
-
+            this.setState({currentUserName: user.name});
           }
         });
         console.log(this.state.currentUserId)}
@@ -119,6 +121,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Header currentUser={this.state.currentUserName}/>
         <Login loginSubmitHandler={this.loginSubmitHandler} />
         <MealsContainer
           meals={this.state.myMeals}
