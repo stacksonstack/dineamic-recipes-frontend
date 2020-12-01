@@ -10,7 +10,7 @@ class App extends Component{
     meals: [],
     mealClicked: "",
     myMeals: [],
-    currentUserId: 2
+    currentUserId: 1
   }
 
   mealClicked = (meal) => {
@@ -44,11 +44,32 @@ class App extends Component{
     })
   }
 
+  submitHandler = mealObj => {
+
+    const { name, image, category, origin, youtube_link, instructions, measurement, ingredient } = mealObj
+
+    fetch('http://localhost:3000/api/v1/meals', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accepts': 'application/json'
+      },
+      body: JSON.stringify({ name, image, category, origin, youtube_link, instructions, measurement, ingredient }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      this.setState({meals: [...this.state.meals, data]});
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
   
+  }
+
   render(){
     return (
       <div >
-        <NewMeal />
+        <NewMeal submitHandler={this.submitHandler}/>
         <MealsContainer meals={this.state.myMeals} mealClicked={this.mealClicked} />
         <MealsContainer meals={this.state.meals} mealClicked={this.mealClicked} addToMyMeals={this.persistMyMeal} />
         <MealFullInfo meal={this.state.mealClicked}/>

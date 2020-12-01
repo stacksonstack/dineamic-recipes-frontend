@@ -3,12 +3,13 @@ import React, { Component } from "react";
 class NewMeal extends Component {
   state = {
     name: "",
+    image: "",
     category: "",
     origin: "",
     youtube_link: "",
     instructions: "",
-    measurement: [],
-    ingredient: [],
+    measurement: [""],
+    ingredient: [""],
     ingredientNum: 1,
   };
 
@@ -24,50 +25,69 @@ class NewMeal extends Component {
   }
 
   handleIngredientsState = (event) => {
-    this.setState({
-      ingredient: [...this.state.ingredient, event.target.value],
-      measurement: [...this.state.measurement, event.target.value]
-    })}
+
+      let ingredient = [...this.state.ingredient];
+      ingredient[event.target.id] = event.target.value;
+      this.setState({ingredient});
+
+    }
+
+  handleMeasurementsState = (event) => {
+
+    let measurement = [...this.state.measurement];
+    measurement[event.target.id] = event.target.value;
+    this.setState({measurement});
+
+  }
 
   renderArray = () => {
     var newArray = [];
     for (var i =0; i < this.state.ingredientNum && i < 20; i++) {
       newArray.push(
-        <>
+        <span key={i}>
           <label>Ingredient {i + 1}</label>
           <input
             
             type="text"
-            value={this.state.ingredient}
+            id={i}
+            value={this.state.ingredient[i] ? this.state.ingredient[i] : ""}
             name="ingredient"
-            onChange={this.handleState}
+            onChange={this.handleIngredientsState}
+            required
           ></input>
 
           <label>Measurement {i + 1}</label>
           <input
-            key={null}
+            id={i}
             type="text"
-            value={this.state.measurement}
+            value={this.state.measurement[i] ? this.state.measurement[i] : ""}
             name="measurement"
-            onChange={this.handleState}
+            onChange={this.handleMeasurementsState}
+            required
           ></input>
-        </>
+        </span>
       );
     }
     return newArray;
   };
 
+  localSubmitHandler = event => {
+    event.preventDefault()
+    this.props.submitHandler(this.state)
+  }
+
   render(){
-    console.log(this.state)
     return (
       <div>
-        <form>
+        <form onSubmit={this.localSubmitHandler}>
           <label>Meal Name</label>
-          <input type="text" value={this.state.name} name="name" onChange={this.handleState}></input>
+          <input type="text" value={this.state.name} name="name" onChange={this.handleState} required></input>
+          <label>Meal Image</label>
+          <input type="text" value={this.state.image} name="image" onChange={this.handleState} required></input>
           <label>Meal Origin</label>
-          <input type="text" value={this.state.origin} name="origin" onChange={this.handleState}></input>
+          <input type="text" value={this.state.origin} name="origin" onChange={this.handleState} required></input>
           <label >Meal Category</label>
-          <select value={this.state.category} id="category" name="category" onChange={this.handleState}>
+          <select value={this.state.category} id="category" name="category" onChange={this.handleState} required>
             <option value="beef">Beef</option>
             <option value="chicken">Chicken</option>
             <option value="dessert">Dessert</option>
@@ -96,14 +116,14 @@ class NewMeal extends Component {
             value={this.state.instructions}
             name="instructions"
             onChange={this.handleState}
+            required
           ></input>
           {this.renderArray()}
           <button onClick={(e) => { e.preventDefault()
             this.handleAddIngredients()}}>
             Add Ingredients and Measurements
           </button>
-
-          <button onSubmit={(e)=>{e.preventDefault()}}>Submit New Meal</button>
+          <input type="submit" value="Submit New Meal"/>
         </form>
       </div>
     );
