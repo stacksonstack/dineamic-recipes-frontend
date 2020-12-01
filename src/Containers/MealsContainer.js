@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import MealPreview from '../Components/MealPreview'
 
-class AllMealsContainer extends Component{
+class MealsContainer extends Component{
     
     renderMealPreview=()=>{
     return this.props.meals.map((meal) => <MealPreview key={meal.id} meal={meal} mealClicked={this.props.mealClicked} addToMyMeals={this.props.addToMyMeals} />)
@@ -16,4 +16,4 @@ class AllMealsContainer extends Component{
 }
 
 
-export default AllMealsContainer;
+export default MealsContainer;

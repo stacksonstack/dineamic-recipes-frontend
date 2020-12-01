@@ -1,8 +1,7 @@
 import './App.css';
 import React, {Component} from 'react'
-import AllMealsContainer from './Containers/AllMealsContainer'
+import MealsContainer from './Containers/MealsContainer'
 import MealFullInfo from './Components/MealFullInfo'
-import MyMealsContainer from './Containers/MyMealsContainer'
 
 class App extends Component{
   
@@ -20,9 +19,9 @@ class App extends Component{
     let response = await fetch("http://localhost:3000/api/v1/meals")
     let data = await response.json()
     this.setState({meals: data})
-    let mealResponse = await fetch(`http://localhost:3000/api/v1/users/${this.state.currentUserId}/user_meals`)
+    let mealResponse = await fetch(`http://localhost:3000/api/v1/users/${this.state.currentUserId}/`)
     let mealData = await mealResponse.json()
-    this.setState({myMeals: mealData})
+    this.setState({myMeals: mealData.meals})
   }
 
   persistMyMeal=(meal)=>{
@@ -39,7 +38,7 @@ class App extends Component{
     })
     .then(resp => resp.json())
     .then(data => {
-      this.setState({myMeals: [...this.state.myMeals, data]})
+      this.setState({myMeals: [...this.state.myMeals, meal]}, ()=> console.log(this.state.myMeals))
     })
   }
 
@@ -47,8 +46,8 @@ class App extends Component{
   render(){
     return (
       <div >
-        <AllMealsContainer meals={this.state.myMeals} mealClicked={this.mealClicked} addToMyMeals={this.persistMyMeal} />
-        {/* <AllMealsContainer meals={this.state.meals} mealClicked={this.mealClicked} addToMyMeals={this.persistMyMeal} /> */}
+        <MealsContainer meals={this.state.myMeals} mealClicked={this.mealClicked} />
+        <MealsContainer meals={this.state.meals} mealClicked={this.mealClicked} addToMyMeals={this.persistMyMeal} />
         <MealFullInfo meal={this.state.mealClicked}/>
       </div>
     )
