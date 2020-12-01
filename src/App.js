@@ -3,6 +3,8 @@ import React, {Component} from 'react'
 import MealsContainer from './Containers/MealsContainer'
 import MealFullInfo from './Components/MealFullInfo'
 import NewMeal from './Components/NewMeal'
+import SignUp from './Components/SignUp'
+import Login from './Components/Login'
 
 class App extends Component{
   
@@ -10,8 +12,10 @@ class App extends Component{
     meals: [],
     mealClicked: "",
     myMeals: [],
-    currentUserId: 1
+    currentUserId: 2
   }
+
+  
 
   mealClicked = (meal) => {
     this.setState({ mealClicked: meal})
@@ -44,6 +48,20 @@ class App extends Component{
     })
   }
 
+  submitUser=(userObj)=>{
+    const {name, email, password } = userObj
+    fetch("http://localhost:3000/api/v1/users", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accepts': 'application/json'
+      }, body: JSON.stringify({name, email, password }),
+    })
+    .then(resp => resp.json())
+    .then(data => console.log(data))
+  }
+
+
   submitHandler = mealObj => {
 
     const { name, image, category, origin, youtube_link, instructions, measurement, ingredient } = mealObj
@@ -69,10 +87,12 @@ class App extends Component{
   render(){
     return (
       <div >
-        <NewMeal submitHandler={this.submitHandler}/>
+        <SignUp submitUser={this.submitUser}/>
+        
         <MealsContainer meals={this.state.myMeals} mealClicked={this.mealClicked} />
         <MealsContainer meals={this.state.meals} mealClicked={this.mealClicked} addToMyMeals={this.persistMyMeal} />
         <MealFullInfo meal={this.state.mealClicked}/>
+        <NewMeal submitHandler={this.submitHandler}/>
       </div>
     )
   }

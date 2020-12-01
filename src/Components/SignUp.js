@@ -14,10 +14,15 @@ class SignUp extends Component {
     });
   };
 
+  localHandler =(e)=>{
+    e.preventDefault()
+    this.props.submitUser(this.state)
+  }
+
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.localHandler}>
           <label>Name</label>
           <input
             type="text"
@@ -46,6 +51,7 @@ class SignUp extends Component {
             name="password2"
             onChange={this.handleState}
           ></input>
+          <input type="submit" value="Sign Up"/>
         </form>
       </div>
     );
