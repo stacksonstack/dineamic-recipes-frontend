@@ -33,3 +33,48 @@ img{
    font-family: Arial, Helvetica, sans-serif;
    text-align: center;
  }
+
+ h1{
+   text-align: center;
+ }
+
+ #show-container{
+   display: grid;
+   grid-template-areas: "simage scategory"
+                        "simage sorigin "
+                        "simage syoutube"
+                        " singredients smeasurements"
+                        " sinstructions sinstructions";
+ }
+
+ #show-category{
+  grid-area: scategory;
+ }
+
+ #show-origin{
+  grid-area: sorigin;
+ }
+
+ #show-youtube{
+  grid-area: syoutube;
+ }
+
+ #show-image{
+  grid-area: simage;
+ }
+
+ #show-instructions{
+  grid-area: sinstructions;
+ }
+
+ #show-ingredients{
+  grid-area: singredients;
+ }
+
+ #show-measurements{
+  grid-area: smeasurements;
+ }
+
+
+
+
