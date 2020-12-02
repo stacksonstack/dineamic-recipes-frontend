@@ -13,7 +13,7 @@ class App extends Component {
     myMeals: [],
 
     // Change user to an actual user in your database
-    currentUserId: 1,
+    currentUserId: null,
     
     currentUserName: "Guest",
   };
@@ -24,11 +24,16 @@ class App extends Component {
     let data = await response.json();
     this.setState({ meals: data });
 
+  }
+
+  async fetchUserMeals() {
+
     let mealResponse = await fetch(
       `http://localhost:3000/api/v1/users/${this.state.currentUserId}/`
     );
     let mealData = await mealResponse.json();
     this.setState({ myMeals: mealData.meals });
+
   }
 
   persistMyMeal = (meal) => {
@@ -58,11 +63,10 @@ class App extends Component {
       .then((data) => {
         data.forEach((user) => {
           if (email === user.email) {
-            this.setState({ currentUserId: user.id });
+            this.setState({ currentUserId: user.id }, this.fetchUserMeals);
             this.setState({ currentUserName: user.name });
           }
         });
-        console.log(this.state.currentUserId);
       });
   };
 
