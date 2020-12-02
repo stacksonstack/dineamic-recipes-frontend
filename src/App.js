@@ -11,7 +11,10 @@ class App extends Component {
   state = {
     meals: [],
     myMeals: [],
-    currentUserId: 4,
+
+    // Change user to an actual user in your database
+    currentUserId: 1,
+    
     currentUserName: "Guest",
   };
 
