@@ -11,12 +11,12 @@ class App extends Component {
   state = {
     meals: [],
     myMeals: [],
-    currentUserId: 1,
+    currentUserId: 4,
     currentUserName: "Guest",
   };
 
   async componentDidMount() {
-    
+
     let response = await fetch("http://localhost:3000/api/v1/meals");
     let data = await response.json();
     this.setState({ meals: data });

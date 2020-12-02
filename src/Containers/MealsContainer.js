@@ -26,7 +26,7 @@ class MealsContainer extends Component {
   render() {
     return (
       <>
-        {this.props.meals.length === 0 ? (
+        {this.props.meals && this.props.meals.length === 0  ? (
           <h1>Loading...</h1>
         ) : (
           <>
@@ -46,11 +46,14 @@ class MealsContainer extends Component {
                   );
                 }}
               />
+              <Route path="/mymeals" render={()=> {return <div>{this.renderMealPreview()}</div> }}/>
+              <Route path="/meals" render={()=> {return <div>{this.renderMealPreview()}</div> }}/>
+              {/* <Route path="/meals" render/> */}
             </Switch>
           </>
         )}
 
-        <div>{this.renderMealPreview()}</div>
+        {/* <div>{this.renderMealPreview()}</div> */}
       </>
     );
   }
