@@ -1,23 +1,18 @@
 import "./App.css";
 import React, { Component } from "react";
 import MealsContainer from "./Containers/MealsContainer";
-import MealFullInfo from "./Components/MealFullInfo";
 import NewMeal from "./Components/NewMeal";
 import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
-import Header from "./Components/Header"
+import Header from "./Components/Header";
+import { Route, Switch } from "react-router-dom";
 
 class App extends Component {
   state = {
     meals: [],
-    mealClicked: "",
     myMeals: [],
-    currentUserId: 5,
-    currentUserName: "Guest"
-  };
-
-  mealClicked = (meal) => {
-    this.setState({ mealClicked: meal });
+    currentUserId: 1,
+    currentUserName: "Guest",
   };
 
   async componentDidMount() {
@@ -59,11 +54,11 @@ class App extends Component {
         data.forEach((user) => {
           if (email === user.email) {
             this.setState({ currentUserId: user.id });
-            this.setState({currentUserName: user.name});
+            this.setState({ currentUserName: user.name });
           }
         });
-        console.log(this.state.currentUserId)}
-     );
+        console.log(this.state.currentUserId);
+      });
   };
 
   submitUser = (userObj) => {
@@ -121,20 +116,43 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header currentUser={this.state.currentUserName}/>
-        <Login loginSubmitHandler={this.loginSubmitHandler} />
-        <MealsContainer
-          meals={this.state.myMeals}
-          mealClicked={this.mealClicked}
-        />
-        <MealsContainer
-          meals={this.state.meals}
-          mealClicked={this.mealClicked}
-          addToMyMeals={this.persistMyMeal}
-        />
-        <MealFullInfo meal={this.state.mealClicked} />
-        <SignUp submitUser={this.submitUser} />
-        <NewMeal submitHandler={this.submitHandler} />
+        <Header currentUser={this.state.currentUserName} />
+
+        <Switch>
+          <Route
+            path="/login"
+            render={() => (
+              <Login loginSubmitHandler={this.loginSubmitHandler} />
+            )}
+          />
+          <Route
+            path="/signup"
+            render={() => <SignUp submitUser={this.submitUser} />}
+          />
+          <Route
+            path="/meals/new"
+            exact
+            render={() => <NewMeal submitHandler={this.submitHandler} />}
+          />
+          <Route
+            path="/meals"
+            render={() => (
+              <MealsContainer
+                meals={this.state.meals}
+                addToMyMeals={this.persistMyMeal}
+              />
+            )}
+          />
+          <Route
+            path="/mymeals"
+            render={() => (
+              <MealsContainer
+                meals={this.state.myMeals}
+              />
+            )}
+          />
+
+        </Switch>
       </div>
     );
   }
