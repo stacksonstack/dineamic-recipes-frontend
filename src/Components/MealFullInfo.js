@@ -6,7 +6,7 @@ class MealFullInfo extends Component{
     render(){
         return(
             <div>
-                {/* <h1>{this.props.foundMeal.name}</h1> */}
+                
                 <h1>{this.props.meal.name}</h1>
                 <h2>Food Category: {this.props.meal.category}</h2>
                 <h2>Food Origin: {this.props.meal.origin}</h2>
