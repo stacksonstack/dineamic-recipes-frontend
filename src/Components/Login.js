@@ -29,7 +29,7 @@ class Login extends Component {
             onChange={this.handleState}
           ></input><br/><br/>
           <label>Password</label><br/>
-          <input type="text"></input><br/><br/>
+          <input type="password"></input><br/><br/>
           <input type="submit" value="Login" id="l-btn"/>
         </form>
         { this.props.currentUserId === null ? null : <p>You were logged in successfully!</p>}
