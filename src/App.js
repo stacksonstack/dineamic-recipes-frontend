@@ -5,7 +5,7 @@ import NewMeal from "./Components/NewMeal";
 import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
 import Header from "./Components/Header";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 
 class App extends Component {
   state = {
@@ -63,12 +63,17 @@ class App extends Component {
       .then((data) => {
         data.forEach((user) => {
           if (email === user.email) {
-            this.setState({ currentUserId: user.id }, this.fetchUserMeals);
-            this.setState({ currentUserName: user.name });
+            this.setCurrentUser(user)
+          this.props.history.push(`/meals`)
           }
         });
       });
   };
+
+  setCurrentUser = user => {
+    this.setState({ currentUserId: user.id }, this.fetchUserMeals);
+    this.setState({ currentUserName: user.name });
+  }
 
   submitUser = (userObj) => {
     const { name, email, password } = userObj;
@@ -81,7 +86,10 @@ class App extends Component {
       body: JSON.stringify({ name, email, password }),
     })
       .then((resp) => resp.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        this.setCurrentUser(data)
+        this.props.history.push(`/meals`)
+      });
   };
 
   submitHandler = (mealObj) => {
@@ -167,4 +175,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
