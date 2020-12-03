@@ -19,6 +19,7 @@ class MealsContainer extends Component {
         meal={meal}
         mealClicked={this.mealClicked}
         addToMyMeals={this.props.addToMyMeals}
+    
       />
     ));
   };
@@ -46,8 +47,8 @@ class MealsContainer extends Component {
                   );
                 }}
               />
-              <Route path="/mymeals" render={()=> {return <div>{this.renderMealPreview()}</div> }}/>
-              <Route path="/meals" render={()=> {return <div>{this.renderMealPreview()}</div> }}/>
+              <Route path="/mymeals" render={()=> {return <div class="preview-flex">{this.renderMealPreview()}</div> }}/>
+              <Route path="/meals" render={()=> {return <div class="preview-flex">{this.renderMealPreview()}</div> }}/>
               {/* <Route path="/meals" render/> */}
             </Switch>
           </>

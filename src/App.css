@@ -75,6 +75,36 @@ img{
   grid-area: smeasurements;
  }
 
+#preview-card{
+  display: grid;
+  grid-template-areas: "pname"
+                       "pimg"
+                       "pbutton";
+  width: 300px;
+  
+  
 
+}
+.preview-flex{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+
+#preview-name{
+  grid-area: pname;
+}
+#preview-img{
+  grid-area: pimg;
+}
+
+#preview-button{
+  grid-area: pbutton;
+}
+
+#signup, #login, #new-meal{
+  text-align: center;
+}
 
 

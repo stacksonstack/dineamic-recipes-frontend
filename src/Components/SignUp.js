@@ -21,36 +21,36 @@ class SignUp extends Component {
 
   render() {
     return (
-      <div>
+      <div id="signup">
         <form onSubmit={this.localHandler}>
-          <label>Name</label>
+          <label>Name</label><br/>
           <input
             type="text"
             value={this.state.name}
             name="name"
             onChange={this.handleState}
-          ></input>
-          <label>Email</label>
+          ></input><br/><br/>
+          <label>Email</label><br/>
           <input
             type="text"
             value={this.state.email}
             name="email"
             onChange={this.handleState}
-          ></input>
-          <label>Password</label>
+          ></input><br/><br/>
+          <label>Password</label><br/>
           <input
             type="text"
             value={this.state.password}
             name="password"
             onChange={this.handleState}
-          ></input>
-          <label>Confirm Password</label>
+          ></input><br/><br/>
+          <label>Confirm Password</label><br/>
           <input
             type="text"
             value={this.state.password2}
             name="password2"
             onChange={this.handleState}
-          ></input>
+          ></input><br/><br/>
           <input type="submit" value="Sign Up"/>
         </form>
       </div>

@@ -4,7 +4,7 @@ class Login extends Component {
   state = {
     email: "",
   };
-  
+
   localHandler = (e) => {
     e.preventDefault();
     this.props.loginSubmitHandler(this.state.email);
@@ -18,17 +18,17 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
+      <div id="login">
         <form onSubmit={this.localHandler}>
-          <label>Email</label>
+          <label>Email</label><br/>
           <input
             type="text"
             value={this.state.email}
             name="email"
             onChange={this.handleState}
-          ></input>
-          <label>Password</label>
-          <input type="text"></input>
+          ></input><br/><br/>
+          <label>Password</label><br/>
+          <input type="text"></input><br/><br/>
           <input type="submit" value="Login" />
         </form>
       </div>

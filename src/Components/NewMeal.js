@@ -45,7 +45,7 @@ class NewMeal extends Component {
     for (var i =0; i < this.state.ingredientNum && i < 20; i++) {
       newArray.push(
         <span key={i}>
-          <label>Ingredient {i + 1}</label>
+          <label>Ingredient {i + 1}</label><br/>
           <input
             
             type="text"
@@ -54,9 +54,9 @@ class NewMeal extends Component {
             name="ingredient"
             onChange={this.handleIngredientsState}
             required
-          ></input>
+          ></input><br/><br/>
 
-          <label>Measurement {i + 1}</label>
+          <label>Measurement {i + 1}</label><br/>
           <input
             id={i}
             type="text"
@@ -64,7 +64,7 @@ class NewMeal extends Component {
             name="measurement"
             onChange={this.handleMeasurementsState}
             required
-          ></input>
+          ></input><br/><br/>
         </span>
       );
     }
@@ -78,15 +78,15 @@ class NewMeal extends Component {
 
   render(){
     return (
-      <div>
+      <div id="new-meal">
         <form onSubmit={this.localSubmitHandler}>
-          <label>Meal Name</label>
-          <input type="text" value={this.state.name} name="name" onChange={this.handleState} required></input>
-          <label>Meal Image</label>
-          <input type="text" value={this.state.image} name="image" onChange={this.handleState} required></input>
-          <label>Meal Origin</label>
-          <input type="text" value={this.state.origin} name="origin" onChange={this.handleState} required></input>
-          <label >Meal Category</label>
+          <label>Meal Name</label><br/>
+          <input type="text" value={this.state.name} name="name" onChange={this.handleState} required></input><br/><br/>
+          <label>Meal Image</label><br/>
+          <input type="text" value={this.state.image} name="image" onChange={this.handleState} required></input><br/><br/>
+          <label>Meal Origin</label><br/>
+          <input type="text" value={this.state.origin} name="origin" onChange={this.handleState} required></input><br/><br/>
+          <label >Meal Category</label><br/>
           <select value={this.state.category} id="category" name="category" onChange={this.handleState} required>
             <option value="beef">Beef</option>
             <option value="chicken">Chicken</option>
@@ -102,27 +102,27 @@ class NewMeal extends Component {
             <option value="vegetarian">Vegetarian</option>
             <option value="breakfast">Breakfast</option>
             <option value="goat">Goat</option>
-          </select>
-          <label>YouTube Link</label>
+          </select><br/><br/>
+          <label>YouTube Link</label><br/>
           <input
             type="text"
             value={this.state.youtube_link}
             name="youtube_link"
             onChange={this.handleState}
-          ></input>
-          <label>Instructions</label>
+          ></input><br/><br/>
+          <label>Instructions</label><br/>
           <input
             type="text"
             value={this.state.instructions}
             name="instructions"
             onChange={this.handleState}
             required
-          ></input>
+          ></input><br/><br/>
           {this.renderArray()}
           <button onClick={(e) => { e.preventDefault()
             this.handleAddIngredients()}}>
             Add Ingredients and Measurements
-          </button>
+          </button> <br/><br/>
           <input type="submit" value="Submit New Meal"/>
         </form>
       </div>
