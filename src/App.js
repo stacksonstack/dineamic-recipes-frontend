@@ -59,14 +59,12 @@ class App extends Component {
   };
 
   removeFromMyMeals = (meal) => {
-    fetch(`http://localhost:3000/api/v1/user_meals/${meal.id}`, {
+    fetch(`http://localhost:3000/api/v1/users/${this.state.currentUserId}/user_meals/${meal.id}`, {
       method: "DELETE",
     })
       .then((resp) => resp.json())
       .then((data) => {
-        console.log(data)
-        // this.setState({ myMeals: data }, () =>
-        //   console.log(this.state.myMeals));
+        this.setState({ myMeals: data });
       });
   }
 
