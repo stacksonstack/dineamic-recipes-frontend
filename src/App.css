@@ -1,110 +1,195 @@
-img{
+@font-face {
+  font-family: titleFont;
+  src: url("BebasNeue-Regular.ttf");
+}
+
+img {
   width: 200px;
   height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 .nav {
-  background-color:#d1d7e0;
+  background-color: #d1d7e0;
   height: 40px;
-  width: 85%;
+  width: 90%;
   margin: 0px auto;
   border-style: solid;
-  border-color: #564f6f;
+  border-color: rgb(149, 217, 223);
   border-width: 7px;
-  width: 85%;
-  color: #564f6f;
-  background: #d1d7e0;
-  opacity: .8;
+
+  color: rgb(0, 109, 121);
+  background: white;
+  opacity: 0.8;
   text-align: center;
   font-weight: bold;
 }
 
-.nav ul{
+.nav ul {
   margin: 0 auto;
   text-align: center;
 }
 
- .nav li {
-   display: inline-block;
-   line-height: 40px;
-   padding: 0px 15px;
-   margin: 0 auto;
-   color: #564f6f;
-   font-family: Arial, Helvetica, sans-serif;
-   text-align: center;
- }
-
- h1{
-   text-align: center;
- }
-
- #show-container{
-   display: grid;
-   grid-template-areas: "simage scategory"
-                        "simage sorigin "
-                        "simage syoutube"
-                        " singredients smeasurements"
-                        " sinstructions sinstructions";
- }
-
- #show-category{
-  grid-area: scategory;
- }
-
- #show-origin{
-  grid-area: sorigin;
- }
-
- #show-youtube{
-  grid-area: syoutube;
- }
-
- #show-image{
-  grid-area: simage;
- }
-
- #show-instructions{
-  grid-area: sinstructions;
- }
-
- #show-ingredients{
-  grid-area: singredients;
- }
-
- #show-measurements{
-  grid-area: smeasurements;
- }
-
-#preview-card{
-  display: grid;
-  grid-template-areas: "pname"
-                       "pimg"
-                       "pbutton";
-  width: 300px;
-  
-  
-
+.nav li {
+  display: inline-block;
+  line-height: 40px;
+  padding: 0px 15px;
+  margin: 0 auto;
+  color: rgb(0, 109, 121);
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
-.preview-flex{
+
+.nav li:hover{
+  color: rgb(255, 36, 0)
+} 
+
+h1 {
+  text-align: center;
+  font-family: titleFont;
+  color: rgb(149, 217, 223);
+
+  font-weight: lighter;
+}
+#title {
+  font-size: 100px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  color: rgb(0, 109, 121);
+  /* color: black; */
+}
+.container-title {
+  font-size: 50px;
+  color: rgb(0, 109, 121);
+  font-weight: bold;
+  font-style: italic;
+}
+
+p {
+  font-family: Arial, sans-serif;
+}
+
+#footer {
+  text-align: center;
+  background-color: rgb(149, 217, 223);
+  height: 20px;
+  padding: 20px;
+  margin-top: 100px;
+  margin-bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: lighter;
+  color: rgb(0, 109, 121);
+  font-family: titleFont;
+}
+
+#show-container {
+  display: grid;
+  grid-template-areas:
+    "simage scategory"
+    "simage sorigin "
+    "simage syoutube"
+    " singredients smeasurements"
+    " sinstructions sinstructions";
+}
+
+#show-category {
+  grid-area: scategory;
+}
+
+#show-origin {
+  grid-area: sorigin;
+}
+
+#show-youtube {
+  grid-area: syoutube;
+}
+
+#show-image {
+  grid-area: simage;
+}
+
+#show-instructions {
+  grid-area: sinstructions;
+}
+
+#show-ingredients {
+  grid-area: singredients;
+}
+
+#show-measurements {
+  grid-area: smeasurements;
+}
+
+#preview-card {
+  display: grid;
+  grid-template-areas:
+    "pname"
+    "pimg"
+    "pbutton";
+  width: 350px;
+  justify-content: center;
+  margin-bottom: 70px;
+}
+
+.preview-flex {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+#preview-name {
+  grid-area: pname;
+  
+}
+
+#preview-name-style:hover{
+  color: rgb(255, 36, 0)
+}
+
+a {
+  text-decoration: none;
+}
+#preview-img {
+  grid-area: pimg;
+  margin-bottom: 10px;
+ 
+}
+
+#preview-button {
+  grid-area: pbutton;
+  display: flex;
+  align-items: center;
   justify-content: center;
   
 }
 
-#preview-name{
-  grid-area: pname;
-}
-#preview-img{
-  grid-area: pimg;
-}
-
-#preview-button{
-  grid-area: pbutton;
-}
-
-#signup, #login, #new-meal{
+#signup,
+#login,
+#new-meal {
   text-align: center;
+  font-weight: bold;
 }
 
+input{
+  font-family: Arial, sans-serif;
+  text-align: center;
+  font-weight: bold;
+  border-color: rgb(0, 109, 121);
+  border-width: 2px
+}
 
+#l-btn, #s-btn{
+  height: 25px;
+  color: rgb(0, 109, 121);
+}
+
+#l-btn{
+  width: 60px;
+}
+#s-btn{
+  width: 70px;
+}

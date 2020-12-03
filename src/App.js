@@ -6,6 +6,7 @@ import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
 import Header from "./Components/Header";
 import { Route, Switch } from "react-router-dom";
+import Footer from './Components/Footer'
 
 class App extends Component {
   state = {
@@ -125,13 +126,13 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header currentUser={this.state.currentUserName} />
+        <Header currentUser={this.state.currentUserName} currentUserId={this.state.currentUserId}/>
 
         <Switch>
           <Route
             path="/login"
             render={() => (
-              <Login loginSubmitHandler={this.loginSubmitHandler} />
+              <Login loginSubmitHandler={this.loginSubmitHandler} currentUserId={this.state.currentUserId} />
             )}
           />
           <Route
@@ -162,6 +163,7 @@ class App extends Component {
           />
 
         </Switch>
+        <Footer />
       </div>
     );
   }
