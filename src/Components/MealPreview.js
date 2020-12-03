@@ -15,7 +15,15 @@ class MealPreview extends Component {
       >
         Add To My Meals List
       </button>
-    ) : null;
+    ) : 
+    
+    <button
+        onClick={() => {
+          this.props.removeFromMyMeals(this.props.meal);
+        }}
+      >
+        Remove From My Meals List
+      </button>;
   };
 
   render() {

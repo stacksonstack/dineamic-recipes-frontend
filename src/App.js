@@ -57,6 +57,18 @@ class App extends Component {
       });
   };
 
+  removeFromMyMeals = (meal) => {
+    fetch(`http://localhost:3000/api/v1/user_meals/${meal.id}`, {
+      method: "DELETE",
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log(data)
+        // this.setState({ myMeals: data }, () =>
+        //   console.log(this.state.myMeals));
+      });
+  }
+
   loginSubmitHandler = (email) => {
     fetch(`http://localhost:3000/api/v1/users/`)
       .then((r) => r.json())
@@ -165,6 +177,7 @@ class App extends Component {
             render={() => (
               <MealsContainer
                 meals={this.state.myMeals}
+                removeFromMyMeals={this.removeFromMyMeals}
               />
             )}
           />

@@ -19,6 +19,7 @@ class MealsContainer extends Component {
         meal={meal}
         mealClicked={this.mealClicked}
         addToMyMeals={this.props.addToMyMeals}
+        removeFromMyMeals={this.props.removeFromMyMeals}
     
       />
     ));
