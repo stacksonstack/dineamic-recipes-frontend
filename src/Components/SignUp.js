@@ -22,6 +22,7 @@ class SignUp extends Component {
   render() {
     return (
       <div id="signup">
+          <h1 class="container-title">Create An Account</h1>
         <form onSubmit={this.localHandler}>
           <label>Name</label><br/>
           <input
@@ -51,7 +52,7 @@ class SignUp extends Component {
             name="password2"
             onChange={this.handleState}
           ></input><br/><br/>
-          <input type="submit" value="Sign Up"/>
+          <input type="submit" value="Sign Up" id="s-btn"/>
         </form>
       </div>
     );

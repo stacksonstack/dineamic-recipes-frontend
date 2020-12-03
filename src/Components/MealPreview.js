@@ -30,9 +30,9 @@ class MealPreview extends Component {
     return (
       <div id="preview-card">
           <NavLink to={`/meals/${this.props.meal.id}`}>
-            <div onClick={this.localClickHandler}>
+            <div onClick={this.localClickHandler} >
               <div id="preview-name">
-                <h1>{this.props.meal.name}</h1>
+                <h1 id="preview-name-style">{this.props.meal.name}</h1>
               </div>
               <div id="preview-img">
                 <img alt={this.props.meal.name} src={this.props.meal.image} />
