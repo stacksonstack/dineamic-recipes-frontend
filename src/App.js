@@ -141,10 +141,14 @@ class App extends Component {
       });
   };
 
+  logoutClickHandler = () => {
+    this.setState({currentUserId: null, currentUserName: "Guest"})
+  }
+
   render() {
     return (
       <div>
-        <Header currentUser={this.state.currentUserName} currentUserId={this.state.currentUserId}/>
+        <Header currentUser={this.state.currentUserName} currentUserId={this.state.currentUserId} logoutClickHandler={this.logoutClickHandler}/>
 
         <Switch>
           <Route

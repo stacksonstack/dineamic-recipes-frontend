@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
 class Header extends Component {
+
   render() {
     return (
       <>
@@ -27,6 +28,9 @@ class Header extends Component {
               </NavLink>
               <NavLink to="/meals/new">
                 <li>Add New Recipe</li>
+              </NavLink>
+              <NavLink to="/login">
+                <li onClick={() => this.props.logoutClickHandler()}>Logout</li>
               </NavLink>
             </>
           )}
