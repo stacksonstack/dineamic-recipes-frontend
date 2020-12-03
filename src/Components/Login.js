@@ -19,6 +19,7 @@ class Login extends Component {
   render() {
     return (
       <div id="login">
+          <h1>Login</h1>
         <form onSubmit={this.localHandler}>
           <label>Email</label><br/>
           <input

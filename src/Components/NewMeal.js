@@ -79,6 +79,7 @@ class NewMeal extends Component {
   render(){
     return (
       <div id="new-meal">
+          <h1>Submit A Recipe!</h1>
         <form onSubmit={this.localSubmitHandler}>
           <label>Meal Name</label><br/>
           <input type="text" value={this.state.name} name="name" onChange={this.handleState} required></input><br/><br/>

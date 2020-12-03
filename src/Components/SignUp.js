@@ -22,6 +22,7 @@ class SignUp extends Component {
   render() {
     return (
       <div id="signup">
+          <h1>Create An Account</h1>
         <form onSubmit={this.localHandler}>
           <label>Name</label><br/>
           <input
