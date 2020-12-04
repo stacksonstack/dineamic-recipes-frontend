@@ -7,10 +7,13 @@ import Login from "./Components/Login";
 import Header from "./Components/Header";
 import { Route, Switch, withRouter } from "react-router-dom";
 import Footer from './Components/Footer'
+import Search from "./Components/Search";
 
 class App extends Component {
   state = {
     meals: [],
+    filteredMeals: [],
+    searchValue: [],
     myMeals: [],
 
     // Change user to an actual user in your database
@@ -23,7 +26,7 @@ class App extends Component {
 
     let response = await fetch("http://localhost:3000/api/v1/meals");
     let data = await response.json();
-    this.setState({ meals: data });
+    this.setState({ meals: data, filteredMeals: data });
 
   }
 
@@ -141,6 +144,14 @@ class App extends Component {
       });
   };
 
+  searchHandler = event => {
+    this.setState({searchValue: event.target.value})
+  }
+
+  filteredMeals = () => {
+    return this.state.meals.filter(meal => meal.name.toLowerCase().includes(this.state.searchValue.toString().toLowerCase()))
+  }
+
   logoutClickHandler = () => {
     this.setState({currentUserId: null, currentUserName: "Guest"})
   }
@@ -169,10 +180,13 @@ class App extends Component {
           <Route
             path="/meals"
             render={() => (
+              <>
+              < Search searchValue={this.state.searchValue} searchHandler={this.searchHandler}/>
               <MealsContainer
-                meals={this.state.meals}
+                meals={this.filteredMeals()}
                 addToMyMeals={this.persistMyMeal}
               />
+              </>
             )}
           />
           <Route
