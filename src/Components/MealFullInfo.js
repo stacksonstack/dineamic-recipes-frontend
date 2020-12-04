@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Ingredient from "./Ingredient";
 
 class MealFullInfo extends Component {
   render() {
