@@ -6,6 +6,7 @@
 img {
   width: 200px;
   height: 200px;
+
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -41,10 +42,14 @@ img {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
 }
+#nav-back{
+  /* background-color: rgb(149, 217, 223); */
+  
+}
 
-.nav li:hover{
-  color: rgb(255, 36, 0)
-} 
+.nav li:hover {
+  color: rgb(255, 36, 0);
+}
 
 h1 {
   text-align: center;
@@ -52,6 +57,15 @@ h1 {
   color: rgb(149, 217, 223);
 
   font-weight: lighter;
+}
+
+#show-name{
+  font-size: 50px;
+  color: rgb(0, 109, 121);
+  font-weight: bold;
+  font-style: italic;
+  padding-bottom: 30px;
+  padding-top: 30px;
 }
 #title {
   font-size: 100px;
@@ -67,24 +81,57 @@ h1 {
   font-style: italic;
 }
 
+
+
 p {
   font-family: Arial, sans-serif;
 }
 
+
 #footer {
   text-align: center;
   background-color: rgb(149, 217, 223);
-  height: 20px;
-  padding: 20px;
-  margin-top: 100px;
-  margin-bottom: 0px;
+  padding: 5px;
+  margin: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: lighter;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: italic;
   color: rgb(0, 109, 121);
-  font-family: titleFont;
+  /* font-family: titleFont; */
+  font-family: Arial, sans-serif;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  
+
 }
+html,body{
+  width: 100%;
+
+}
+h3{
+  margin-left: 15px;
+  color: rgb(0, 109, 121);
+  
+    
+  font-size: 30px;
+  font-weight: lighter;
+  font-family: titleFont;
+  align-items: center;
+}
+h2{
+  
+  color: rgb(255, 36, 0);
+  font-size: 30px;
+  font-weight: 100;
+  font-family: titleFont;
+  font-style: italic;
+  
+}
+
 
 #show-container {
   display: grid;
@@ -92,36 +139,115 @@ p {
     "simage scategory"
     "simage sorigin "
     "simage syoutube"
-    " singredients smeasurements"
+    "  smeasurements singredients"
     " sinstructions sinstructions";
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
 }
 
 #show-category {
   grid-area: scategory;
+  display: inline-flex;
+  align-items: baseline;
+  width: 100%;
+  margin-left: 30px;
 }
 
+
+
+a:visited{
+  color: rgb(0, 109, 121);
+}
+a:hover{
+  color: rgb(149, 217, 223);
+}
 #show-origin {
   grid-area: sorigin;
+  display: inline-flex;
+  align-items: baseline;
+  width: 100%;
+  margin-left: 30px;
+  margin-bottom: 0px;
 }
 
 #show-youtube {
   grid-area: syoutube;
+  display: inline-flex;
+  align-items: baseline;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-left: 30px;
 }
 
 #show-image {
   grid-area: simage;
+
+  
+  width: 100%;
+  margin-right: 10%;
+  
+  
+}
+
+
+#s-image{
+  width: 300px;
+  height: 300px;
+  margin-right: 10px;
+ 
+}
+#how-to{
+  width: 80%;
+ 
+ 
+}
+
+#how-to2{
+  
+  color: rgb(255, 36, 0);
+ 
 }
 
 #show-instructions {
   grid-area: sinstructions;
+  width: 60%;
+  height: fit-content ;
+  text-align: center;
+  padding-top: 50px;
+  border-radius: 10%;
+  padding-bottom: 70px;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
+a{
+  color: rgb(0, 109, 121);
+  
+}
 #show-ingredients {
   grid-area: singredients;
+  padding-top: 50px;
+  width: 100%;
+  margin-left: 30px;
+  
+  
 }
+.font-style{
+  font-style: normal;
+  font-weight: lighter;
+  font-size: 35px;
+}
+
 
 #show-measurements {
   grid-area: smeasurements;
+  
+  margin-right:10%;
+  width: 100%;
+  text-align: end;
+  padding-top: 50px;
 }
 
 #preview-card {
@@ -146,8 +272,8 @@ p {
   
 }
 
-#preview-name-style:hover{
-  color: rgb(255, 36, 0)
+#preview-name-style:hover {
+  color: rgb(255, 36, 0);
 }
 
 a {
@@ -155,8 +281,7 @@ a {
 }
 #preview-img {
   grid-area: pimg;
-  margin-bottom: 10px;
- 
+  margin-bottom: 20px;
 }
 
 #preview-button {
@@ -164,7 +289,6 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  
 }
 
 #signup,
@@ -172,6 +296,7 @@ a {
 #new-meal {
   text-align: center;
   font-weight: bold;
+  
 }
 
 input{
@@ -179,17 +304,42 @@ input{
   text-align: center;
   font-weight: bold;
   border-color: rgb(0, 109, 121);
-  border-width: 2px
+  border-width: 2px;
+}
+button{
+  font-family: Arial, sans-serif;
+  text-align: center;
+  
+  border-color: rgb(0, 109, 121);
+  border-width: 2px;
+  padding-top:5px;
+  padding-bottom:5px;
+  padding-left: 8px;
+  padding-right: 8px;
+
+  font-size: 14px;
+  color: rgb(0, 109, 121);
+  font-style: italic;
+
+ 
+}
+button:hover{
+ color: rgb(255, 36, 0);
 }
 
-#l-btn, #s-btn{
+#yt{
+  width: 40%;
+  
+}
+#l-btn,
+#s-btn {
   height: 25px;
   color: rgb(0, 109, 121);
 }
 
-#l-btn{
+#l-btn {
   width: 60px;
 }
-#s-btn{
+#s-btn {
   width: 70px;
 }

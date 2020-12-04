@@ -7,7 +7,7 @@ class Header extends Component {
     return (
       <>
         <h1 id="title">Dine-amic Recipes</h1>
-
+      <div id="nav-back">
         <ul className="nav">
           {this.props.currentUserId === null ? (
             <>
@@ -37,6 +37,7 @@ class Header extends Component {
 
           <li>Welcome {this.props.currentUser}</li>
         </ul>
+        </div>
       </>
     );
   }

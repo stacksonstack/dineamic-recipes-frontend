@@ -13,7 +13,7 @@ class MealPreview extends Component {
           this.props.addToMyMeals(this.props.meal);
         }}
       >
-        Add To My Meals List
+        Add To My Recipes
       </button>
     ) : 
     
@@ -22,7 +22,7 @@ class MealPreview extends Component {
           this.props.removeFromMyMeals(this.props.meal);
         }}
       >
-        Remove From My Meals List
+        Remove From My Recipes
       </button>;
   };
 

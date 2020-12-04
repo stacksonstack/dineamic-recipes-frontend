@@ -147,7 +147,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <Header currentUser={this.state.currentUserName} currentUserId={this.state.currentUserId} logoutClickHandler={this.logoutClickHandler}/>
 
         <Switch>
@@ -187,7 +187,7 @@ class App extends Component {
 
         </Switch>
         <Footer />
-      </div>
+      </>
     );
   }
 }
