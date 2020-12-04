@@ -181,7 +181,7 @@ class App extends Component {
             path="/meals"
             render={() => (
               <>
-              < Search searchValue={this.state.searchValue} searchHandler={this.searchHandler}/>
+              < Search searchValue={this.state.searchValue} searchHandler={this.searchHandler} />
               <MealsContainer
                 meals={this.filteredMeals()}
                 addToMyMeals={this.persistMyMeal}

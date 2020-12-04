@@ -42,9 +42,8 @@ img {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
 }
-#nav-back{
+#nav-back {
   /* background-color: rgb(149, 217, 223); */
-  
 }
 
 .nav li:hover {
@@ -59,7 +58,7 @@ h1 {
   font-weight: lighter;
 }
 
-#show-name{
+#show-name {
   font-size: 50px;
   color: rgb(0, 109, 121);
   font-weight: bold;
@@ -81,12 +80,9 @@ h1 {
   font-style: italic;
 }
 
-
-
 p {
   font-family: Arial, sans-serif;
 }
-
 
 #footer {
   text-align: center;
@@ -105,33 +101,27 @@ p {
   position: fixed;
   bottom: 0;
   width: 100%;
-  
-
 }
-html,body{
+html,
+body {
   width: 100%;
-
 }
-h3{
+h3 {
   margin-left: 15px;
   color: rgb(0, 109, 121);
-  
-    
+
   font-size: 30px;
   font-weight: lighter;
   font-family: titleFont;
   align-items: center;
 }
-h2{
-  
+h2 {
   color: rgb(255, 36, 0);
   font-size: 30px;
   font-weight: 100;
   font-family: titleFont;
   font-style: italic;
-  
 }
-
 
 #show-container {
   display: grid;
@@ -141,9 +131,9 @@ h2{
     "simage syoutube"
     "  smeasurements singredients"
     " sinstructions sinstructions";
-    justify-content: center;
-    justify-items: center;
-    width: 100%;
+  justify-content: center;
+  justify-items: center;
+  width: 100%;
 }
 
 #show-category {
@@ -154,12 +144,10 @@ h2{
   margin-left: 30px;
 }
 
-
-
-a:visited{
+a:visited {
   color: rgb(0, 109, 121);
 }
-a:hover{
+a:hover {
   color: rgb(149, 217, 223);
 }
 #show-origin {
@@ -183,36 +171,27 @@ a:hover{
 #show-image {
   grid-area: simage;
 
-  
   width: 100%;
   margin-right: 10%;
-  
-  
 }
 
-
-#s-image{
+#s-image {
   width: 300px;
   height: 300px;
   margin-right: 10px;
- 
 }
-#how-to{
+#how-to {
   width: 80%;
- 
- 
 }
 
-#how-to2{
-  
+#how-to2 {
   color: rgb(255, 36, 0);
- 
 }
 
 #show-instructions {
   grid-area: sinstructions;
   width: 60%;
-  height: fit-content ;
+  height: fit-content;
   text-align: center;
   padding-top: 50px;
   border-radius: 10%;
@@ -222,29 +201,25 @@ a:hover{
   flex-wrap: wrap;
 }
 
-a{
+a {
   color: rgb(0, 109, 121);
-  
 }
 #show-ingredients {
   grid-area: singredients;
   padding-top: 50px;
   width: 100%;
   margin-left: 30px;
-  
-  
 }
-.font-style{
+.font-style {
   font-style: normal;
   font-weight: lighter;
   font-size: 35px;
 }
 
-
 #show-measurements {
   grid-area: smeasurements;
-  
-  margin-right:10%;
+
+  margin-right: 10%;
   width: 100%;
   text-align: end;
   padding-top: 50px;
@@ -267,9 +242,14 @@ a{
   justify-content: center;
 }
 
+#search-bar {
+  /* margin-right: 0px; */
+  margin-left: 72%;
+  margin-top: 20px;
+}
+
 #preview-name {
   grid-area: pname;
-  
 }
 
 #preview-name-style:hover {
@@ -296,40 +276,36 @@ a {
 #new-meal {
   text-align: center;
   font-weight: bold;
-  
 }
 
-input{
+input {
   font-family: Arial, sans-serif;
   text-align: center;
   font-weight: bold;
   border-color: rgb(0, 109, 121);
   border-width: 2px;
 }
-button{
+button {
   font-family: Arial, sans-serif;
   text-align: center;
-  
+
   border-color: rgb(0, 109, 121);
   border-width: 2px;
-  padding-top:5px;
-  padding-bottom:5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   padding-left: 8px;
   padding-right: 8px;
 
   font-size: 14px;
   color: rgb(0, 109, 121);
   font-style: italic;
-
- 
 }
-button:hover{
- color: rgb(255, 36, 0);
+button:hover {
+  color: rgb(255, 36, 0);
 }
 
-#yt{
+#yt {
   width: 40%;
-  
 }
 #l-btn,
 #s-btn {
