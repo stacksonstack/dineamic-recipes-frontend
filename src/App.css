@@ -278,6 +278,10 @@ a {
   font-weight: bold;
 }
 
+#new-meal {
+  padding-bottom: 100px;
+}
+
 input {
   font-family: Arial, sans-serif;
   text-align: center;

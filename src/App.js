@@ -7,7 +7,6 @@ import Login from "./Components/Login";
 import Header from "./Components/Header";
 import { Route, Switch, withRouter } from "react-router-dom";
 import Footer from './Components/Footer'
-import Search from "./Components/Search";
 
 class App extends Component {
   state = {
@@ -181,8 +180,9 @@ class App extends Component {
             path="/meals"
             render={() => (
               <>
-              < Search searchValue={this.state.searchValue} searchHandler={this.searchHandler} />
               <MealsContainer
+                searchValue={this.state.searchValue}
+                searchHandler={this.searchHandler}
                 meals={this.filteredMeals()}
                 addToMyMeals={this.persistMyMeal}
               />

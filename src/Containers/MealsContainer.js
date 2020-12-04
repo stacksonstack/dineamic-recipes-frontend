@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import MealPreview from "../Components/MealPreview";
 import MealFullInfo from "../Components/MealFullInfo";
 import { Route, Switch } from "react-router-dom";
+import Search from "../Components/Search";
+
 
 class MealsContainer extends Component {
   state = {
@@ -49,7 +51,7 @@ class MealsContainer extends Component {
                 }}
               />
               <Route path="/mymeals" render={()=> {return <><h1 class="container-title">My Saved Recipes</h1><div class="preview-flex">{this.renderMealPreview()}</div></> }}/>
-              <Route path="/meals" render={()=> {return <> <h1 class="container-title">All Recipes</h1> <div class="preview-flex"> {this.renderMealPreview()}</div> </>}}/>
+              <Route path="/meals" render={()=> {return <> < Search searchValue={this.props.searchValue} searchHandler={this.props.searchHandler} /> <h1 class="container-title">All Recipes</h1> <div class="preview-flex"> {this.renderMealPreview()}</div> </>}}/>
               {/* <Route path="/meals" render/> */}
             </Switch>
           </>

@@ -40,14 +40,14 @@ class SignUp extends Component {
           ></input><br/><br/>
           <label>Password</label><br/>
           <input
-            type="text"
+            type="password"
             value={this.state.password}
             name="password"
             onChange={this.handleState}
           ></input><br/><br/>
           <label>Confirm Password</label><br/>
           <input
-            type="text"
+            type="password"
             value={this.state.password2}
             name="password2"
             onChange={this.handleState}
