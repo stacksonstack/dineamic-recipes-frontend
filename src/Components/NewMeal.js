@@ -71,7 +71,7 @@ class NewMeal extends Component {
     return newArray;
   };
 
-  localSubmitHandler = event => {
+  localSubmitHandler = (event) => {
     event.preventDefault()
     this.props.submitHandler(this.state)
   }
@@ -80,7 +80,7 @@ class NewMeal extends Component {
     return (
       <div id="new-meal">
           <h1 class="container-title">Submit A Recipe!</h1>
-        <form onSubmit={this.localSubmitHandler}>
+        <form onSubmit={(e)=>this.localSubmitHandler(e)}>
           <label>Meal Name</label><br/>
           <input type="text" value={this.state.name} name="name" onChange={this.handleState} required></input><br/><br/>
           <label>Meal Image</label><br/>

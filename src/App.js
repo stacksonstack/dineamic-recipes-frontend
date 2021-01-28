@@ -136,7 +136,8 @@ class App extends Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        this.setState({ meals: [...this.state.meals, data] });
+        this.setState({ meals: [...this.state.meals, data] }, () =>
+        this.props.history.push("/meals"));
       })
       .catch((error) => {
         console.error("Error:", error);
