@@ -5,7 +5,8 @@ Having trouble figuring out what to make for dinner? Are you tired of cooking th
 - Javascript
 - React 
 - HTML
-- Pure CSS
+- Pure CSS + Styled Components
+
 
 
 ## Getting Started
