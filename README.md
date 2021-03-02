@@ -7,7 +7,7 @@ Having trouble figuring out what to make for dinner? Are you tired of cooking th
 - HTML
 - Babel
 - Webpack
-- CSS + Styled Components
+- CSS
 
 
 
